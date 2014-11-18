@@ -22,5 +22,7 @@ Because other static site generators are too damn complex.
 
 Note: In order to generate &lt;title&gt; tags, input files are required to contain a &lt;h1&gt;.
 
+You can also install [inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki) and run `make watch` for automatic rebuilds.
+
 ## License
 Licensed under GPLv2+ (in case it ever reaches the threshold of originality).

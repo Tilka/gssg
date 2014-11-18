@@ -13,5 +13,8 @@ $(OUTPUT_DIR)/%.html: %.md
 	@echo "$< => $@"
 	@content="$$(markdown $<)"; title="$$(echo $$content | grep -Po '(?<=<h1>).*(?=</h1>)')"; eval "echo \"$$(cat template.html)\"" >$@
 
+watch:
+	@+while inotifywait -re modify --exclude '.*\.swp' .; do make; done
+
 clean:
 	rm -rf $(OUTPUT_DIR)
