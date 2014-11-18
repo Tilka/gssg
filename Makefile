@@ -1,10 +1,13 @@
 OUTPUT_DIR=output
+TEMPLATE=template.html
 MD_FILES=$(wildcard *.md)
 HTML_FILES=$(MD_FILES:%.md=$(OUTPUT_DIR)/%.html)
 
 .PHONY: all clean
 
-all: $(OUTPUT_DIR) $(HTML_FILES)
+all: $(HTML_FILES)
+
+$(HTML_FILES): $(TEMPLATE) | $(OUTPUT_DIR)
 
 $(OUTPUT_DIR):
 	mkdir -p $@
