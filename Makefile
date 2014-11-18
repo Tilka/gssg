@@ -11,7 +11,7 @@ $(OUTPUT_DIR):
 
 $(OUTPUT_DIR)/%.html: %.md
 	@echo "$< => $@"
-	@sh -c 'content="$$(markdown $<)";title="$$(echo $$content|grep -Po '\''(?<=<h1>).*(?=</h1>)'\'')";eval "echo \"$$(cat template.html)\"" >$@'
+	@content="$$(markdown $<)"; title="$$(echo $$content | grep -Po '(?<=<h1>).*(?=</h1>)')"; eval "echo \"$$(cat template.html)\"" >$@
 
 clean:
 	rm -rf $(OUTPUT_DIR)
