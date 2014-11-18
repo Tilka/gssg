@@ -11,7 +11,7 @@ $(OUTPUT_DIR):
 
 $(OUTPUT_DIR)/%.html: %.md
 	@echo "$< => $@"
-	@markdown $< | python -c 'import re, sys; content = sys.stdin.read(); sys.stdout.write(open("template.html").read().format(title=re.search(r"<h1>(?P<title>.*)</h1>", content).group("title"), content=content))' >$@
+	@sh -c 'content="$$(markdown $<)";title="$$(echo $$content|grep -Po '\''(?<=<h1>).*(?=</h1>)'\'')";eval "echo \"$$(cat template.html)\"" >$@'
 
 clean:
 	rm -rf $(OUTPUT_DIR)
