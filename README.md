@@ -10,7 +10,9 @@ Because other static site generators are too damn complex.
 
 ## Requirements
 - markdown (could easily be replaced with other input formats)
-- Python 2 or 3 (could easily be replaced with your favourite scripting language)
+- make
+- sh-compatible shell
+- GNU grep
 
 
 ## User Guide
